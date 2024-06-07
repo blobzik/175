@@ -1,11 +1,17 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinTable } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinTable,
+} from 'typeorm';
 import { Category } from 'src/category/entities/category.entity';
 import { ApiProperty } from '@nestjs/swagger';
 
 export enum postStatusEnum {
-    DRAW = 'Черновик',
-    PUBLISHED = 'Опубликован',
-    DELETED = 'Снят с публикации'
+  DRAW = 'Черновик',
+  PUBLISHED = 'Опубликован',
+  DELETED = 'Снят с публикации',
 }
 
 @Entity()

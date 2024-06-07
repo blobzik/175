@@ -9,13 +9,13 @@ import { Post } from './entities/post.entity';
 export class PostsService {
   constructor(
     @InjectRepository(Post)
-    private repository: Repository<Post>
-  ) { }
-  
+    private repository: Repository<Post>,
+  ) {}
+
   create(createPostDto: CreatePostDto) {
     return this.repository.save({
       ...DataTransfer,
-      changed_at: moment().format('YYYY-MM-DD HH:mm:ss')
+      changed_at: moment().format('YYYY-MM-DD HH:mm:ss'),
     });
   }
 
@@ -28,10 +28,10 @@ export class PostsService {
   }
 
   update(id: number, updatePostDto: UpdatePostDto) {
-    return this.repository.save({...data, id});
+    return this.repository.save({ ...data, id });
   }
 
   async remove(id: number) {
-    await this,this.repository.delete(id);
+    await this, this.repository.delete(id);
   }
 }

@@ -9,19 +9,19 @@ import { AuthService } from 'src/auth/auth.service';
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+  ) {}
 
   @Post('auth/register')
   register(@Body() CreateUserDto: CreateUserDto) {
     return this.usersService.register(CreateUserDto);
   }
-  
+
   @UseGuards(AuthGuard('local'))
   @Post('auth/login')
   async login(@Request() req) {
     return this.authService.login(req.user);
-    }
+  }
 
   @Get()
   getHello(): string {
